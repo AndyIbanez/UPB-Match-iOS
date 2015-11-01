@@ -14,6 +14,7 @@
 		6CE5C7C81BC807D900E5B1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE5C7C61BC807D900E5B1AB /* LaunchScreen.storyboard */; };
 		6CE5C7D31BC807D900E5B1AB /* UPB_MatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5C7D21BC807D900E5B1AB /* UPB_MatchTests.swift */; };
 		6CE5C7DE1BC807D900E5B1AB /* UPB_MatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5C7DD1BC807D900E5B1AB /* UPB_MatchUITests.swift */; };
+		953FF47B318DF4EFC2A28D22 /* libPods-UPB Match.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B710889B2DF7686A3F4DC8F /* libPods-UPB Match.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B710889B2DF7686A3F4DC8F /* libPods-UPB Match.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UPB Match.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E26FE459C994BF901B455E7 /* Pods-UPB Match.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPB Match.release.xcconfig"; path = "Pods/Target Support Files/Pods-UPB Match/Pods-UPB Match.release.xcconfig"; sourceTree = "<group>"; };
 		6CE5C7BA1BC807D900E5B1AB /* UPB Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPB Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE5C7BD1BC807D900E5B1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CE5C7BF1BC807D900E5B1AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		6CE5C7D91BC807D900E5B1AB /* UPB MatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UPB MatchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE5C7DD1BC807D900E5B1AB /* UPB_MatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPB_MatchUITests.swift; sourceTree = "<group>"; };
 		6CE5C7DF1BC807D900E5B1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EA687EFD89BF253CB1B1137 /* Pods-UPB Match.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPB Match.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UPB Match/Pods-UPB Match.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953FF47B318DF4EFC2A28D22 /* libPods-UPB Match.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E56F0C69976E658501FE24A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B710889B2DF7686A3F4DC8F /* libPods-UPB Match.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5EB1477BA8E382E7C07ED059 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EA687EFD89BF253CB1B1137 /* Pods-UPB Match.debug.xcconfig */,
+				4E26FE459C994BF901B455E7 /* Pods-UPB Match.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6CE5C7B11BC807D800E5B1AB = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,8 @@
 				6CE5C7D11BC807D900E5B1AB /* UPB MatchTests */,
 				6CE5C7DC1BC807D900E5B1AB /* UPB MatchUITests */,
 				6CE5C7BB1BC807D900E5B1AB /* Products */,
+				5EB1477BA8E382E7C07ED059 /* Pods */,
+				1E56F0C69976E658501FE24A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CE5C7E21BC807D900E5B1AB /* Build configuration list for PBXNativeTarget "UPB Match" */;
 			buildPhases = (
+				35AEFA0479DB8270828F5625 /* Check Pods Manifest.lock */,
 				6CE5C7B61BC807D900E5B1AB /* Sources */,
 				6CE5C7B71BC807D900E5B1AB /* Frameworks */,
 				6CE5C7B81BC807D900E5B1AB /* Resources */,
+				3F47C1025167B7EEAE22D60F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +275,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35AEFA0479DB8270828F5625 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3F47C1025167B7EEAE22D60F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UPB Match/Pods-UPB Match-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6CE5C7B61BC807D900E5B1AB /* Sources */ = {
@@ -396,6 +455,7 @@
 		};
 		6CE5C7E31BC807D900E5B1AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EA687EFD89BF253CB1B1137 /* Pods-UPB Match.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "UPB Match/Info.plist";
@@ -407,6 +467,7 @@
 		};
 		6CE5C7E41BC807D900E5B1AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E26FE459C994BF901B455E7 /* Pods-UPB Match.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "UPB Match/Info.plist";
@@ -483,6 +544,7 @@
 				6CE5C7E41BC807D900E5B1AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6CE5C7E51BC807D900E5B1AB /* Build configuration list for PBXNativeTarget "UPB MatchTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +553,7 @@
 				6CE5C7E71BC807D900E5B1AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6CE5C7E81BC807D900E5B1AB /* Build configuration list for PBXNativeTarget "UPB MatchUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +562,7 @@
 				6CE5C7EA1BC807D900E5B1AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
