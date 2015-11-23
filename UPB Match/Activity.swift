@@ -127,6 +127,9 @@ public class Activity {
                             break
                         }
                     }
+                }else {
+                    print("No participants")
+                    failure(error: "No participants.", objects: nil)
                 }
                 
                 do {
@@ -168,6 +171,9 @@ public class Activity {
                             break
                         }
                     }
+                } else {
+                    print("No participants")
+                    failure(error: "No participants.", objects: nil)
                 }
                 
                 if parts.count > 0 {

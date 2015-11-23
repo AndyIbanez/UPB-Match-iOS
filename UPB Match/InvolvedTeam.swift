@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+/// Represents an involved team in an activiy.
 public class InvolvedTeam {
     /// Team.
     let team: Team
