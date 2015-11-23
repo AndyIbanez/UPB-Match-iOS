@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C79EE7D1C03AC9700A83716 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79EE7C1C03AC9700A83716 /* Activity.swift */; };
 		6C79EE7F1C03ACEC00A83716 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79EE7E1C03ACEC00A83716 /* Team.swift */; };
+		6C79EE811C03BD5100A83716 /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79EE801C03BD5100A83716 /* ActivityTests.swift */; };
 		6CB740901C02C5760050F199 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6CB7408F1C02C5760050F199 /* Podfile */; };
 		6CE5C7BE1BC807D900E5B1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5C7BD1BC807D900E5B1AB /* AppDelegate.swift */; };
 		6CE5C7C01BC807D900E5B1AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5C7BF1BC807D900E5B1AB /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		6C79EE7A1C03A52100A83716 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		6C79EE7C1C03AC9700A83716 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		6C79EE7E1C03ACEC00A83716 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		6C79EE801C03BD5100A83716 /* ActivityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTests.swift; sourceTree = "<group>"; };
 		6CB7408F1C02C5760050F199 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		6CE5C7BA1BC807D900E5B1AB /* UPB Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPB Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE5C7BD1BC807D900E5B1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				6CE5C7D21BC807D900E5B1AB /* UPB_MatchTests.swift */,
 				6CE5C7D41BC807D900E5B1AB /* Info.plist */,
+				6C79EE801C03BD5100A83716 /* ActivityTests.swift */,
 			);
 			path = "UPB MatchTests";
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C79EE811C03BD5100A83716 /* ActivityTests.swift in Sources */,
 				6CE5C7D31BC807D900E5B1AB /* UPB_MatchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
