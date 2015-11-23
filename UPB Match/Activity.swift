@@ -118,10 +118,14 @@ public class Activity {
                 if let objs = objects {
                     for participant in objs {
                         let team = participant.objectForKey("Id_Equipo") as! PFObject
-                        // TODO
-                        // let indiTeam = Team(team)
-                        //let ptcpt = Participant(team: indieTeam, totalPoints: Int(participant["Puntos_Ganados"] as! String)!, pointsLost: Int(participant["Puntos_Puntos_Perdido"] as! String)!)
-                        //parts += [ptcpt]
+                        if let indiTeam = Team(team: team) {
+                            let ptcpt = Participant(team: indiTeam, totalPoints: Int(participant["Puntos_Ganados"] as! String)!, pointsLost: Int(participant["Puntos_Puntos_Perdido"] as! String)!)
+                            parts += [ptcpt]
+                        } else {
+                            print("Couldn't create team.")
+                            failure(error: "Team Failure", objects: nil)
+                            break
+                        }
                     }
                 }
                 
@@ -155,10 +159,14 @@ public class Activity {
                 var parts = [Participant]()
                 if let objs = objects {
                     for participant in objs {
-                        // TODO
-                        // let indiTeam = Team(participant)
-                        //let ptcpt = Participant(team: indieTeam, totalPoints: Int(participant["Puntos_Ganados"] as! String)!, pointsLost: Int(participant["Puntos_Puntos_Perdido"] as! String)!)
-                        //parts += [ptcpt]
+                        if let indiTeam = Team(team: participant) {
+                            let ptcpt = Participant(team: indiTeam, totalPoints: Int(participant["Puntos_Ganados"] as! String)!, pointsLost: Int(participant["Puntos_Puntos_Perdido"] as! String)!)
+                            parts += [ptcpt]
+                        } else {
+                            print("Couldn't create team.")
+                            failure(error: "Team Failure", objects: nil)
+                            break
+                        }
                     }
                 }
                 
