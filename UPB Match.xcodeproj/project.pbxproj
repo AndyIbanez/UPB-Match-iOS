@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CB740901C02C5760050F199 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6CB7408F1C02C5760050F199 /* Podfile */; };
 		6CE5C7BE1BC807D900E5B1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5C7BD1BC807D900E5B1AB /* AppDelegate.swift */; };
 		6CE5C7C01BC807D900E5B1AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE5C7BF1BC807D900E5B1AB /* ViewController.swift */; };
 		6CE5C7C31BC807D900E5B1AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CE5C7C11BC807D900E5B1AB /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		4B710889B2DF7686A3F4DC8F /* libPods-UPB Match.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UPB Match.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E26FE459C994BF901B455E7 /* Pods-UPB Match.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPB Match.release.xcconfig"; path = "Pods/Target Support Files/Pods-UPB Match/Pods-UPB Match.release.xcconfig"; sourceTree = "<group>"; };
+		6CB7408F1C02C5760050F199 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		6CE5C7BA1BC807D900E5B1AB /* UPB Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPB Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CE5C7BD1BC807D900E5B1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CE5C7BF1BC807D900E5B1AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		6CE5C7BC1BC807D900E5B1AB /* UPB Match */ = {
 			isa = PBXGroup;
 			children = (
+				6CB7408F1C02C5760050F199 /* Podfile */,
 				6CE5C7BD1BC807D900E5B1AB /* AppDelegate.swift */,
 				6CE5C7BF1BC807D900E5B1AB /* ViewController.swift */,
 				6CE5C7C11BC807D900E5B1AB /* Main.storyboard */,
@@ -256,6 +259,7 @@
 			files = (
 				6CE5C7C81BC807D900E5B1AB /* LaunchScreen.storyboard in Resources */,
 				6CE5C7C51BC807D900E5B1AB /* Assets.xcassets in Resources */,
+				6CB740901C02C5760050F199 /* Podfile in Resources */,
 				6CE5C7C31BC807D900E5B1AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
