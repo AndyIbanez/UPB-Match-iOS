@@ -29,6 +29,13 @@ public class Event {
     let description: String
     
     /// Creates a new Event.
+    ///
+    /// - parameter id: Event ID.
+    /// - parameter name: Event name.
+    /// - parameter day: Event day.
+    /// - parameter hour: Event hour.
+    /// - parameter date: Event date.
+    /// - parameter description: Event discription.
     init(id: String, name: String, day: Int, hour: String, date: NSDate, description: String) {
         self.ID = id
         self.name = name
