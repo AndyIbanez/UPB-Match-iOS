@@ -50,7 +50,7 @@ public class Team {
         do {
             self.name = try team.fetchIfNeeded()["Nombre_Equipo"] as! String
             self.color = try team.fetchIfNeeded()["Color"] as! String
-            self.score = Int(try team.fetchIfNeeded()["Puntaje"] as! String)!
+            self.score = try team.fetchIfNeeded()["Puntaje"] as! Int
             self.ID = try team.fetchIfNeeded().objectId!
         } catch _ {
             self.name = ""
