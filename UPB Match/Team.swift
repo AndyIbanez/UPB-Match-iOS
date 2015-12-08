@@ -49,8 +49,8 @@ public class Team {
     init?(team: PFObject) {
         do {
             self.name = try team.fetchIfNeeded()["Nombre_Equipo"] as! String
-            self.color = try team.fetchIfNeeded()["Colot"] as! String
-            self.score = Int(try team.fetchIfNeeded()["Nombre_Equipo"] as! String)!
+            self.color = try team.fetchIfNeeded()["Color"] as! String
+            self.score = Int(try team.fetchIfNeeded()["Puntaje"] as! String)!
             self.ID = try team.fetchIfNeeded().objectId!
         } catch _ {
             self.name = ""
@@ -66,7 +66,7 @@ public class Team {
     /// In the Android version, this logic was implemented in a different class called TeamsManager. For practical reasons we will use this class for that same purpose.
     /// - parameter success: A closure that gets called when the operation succeeds.
     /// - parameter failure: A closure that gets called when the operation fails.
-    func fetchTeams(success success: SuccessTeamsClosure, failure: FailureTeamsFetchClosure) {
+    static func fetchTeams(success success: SuccessTeamsClosure, failure: FailureTeamsFetchClosure) {
         let query = PFQuery(className: "Equipos")
         query.orderByDescending("Puntaje")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
@@ -105,7 +105,7 @@ public class Team {
     ///
     /// - parameter success: A closure that gets called when the operation succeeds.
     /// - parameter failure: A closure that gets called when the operation fails.
-    func fetchTeamsFromCache(success success: SuccessTeamsClosure, failure: FailureTeamsFetchClosure) {
+    static func fetchTeamsFromCache(success success: SuccessTeamsClosure, failure: FailureTeamsFetchClosure) {
         func fetchTeams(success success: SuccessTeamsClosure, failure: FailureTeamsFetchClosure) {
             let query = PFQuery(className: "Equipos")
             query.orderByDescending("Puntaje")
