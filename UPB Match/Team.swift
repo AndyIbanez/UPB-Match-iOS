@@ -82,12 +82,15 @@ public class Team {
                         } else {
                             print("Couldn't create team")
                             failure(error: "Couldn't create team.", objects: nil)
-                            break
+                            //break
+                            return
                         }
                     }
+                    success(participants: teams)
                 } else {
                     print("No teams")
                     failure(error: "No teams", objects: nil)
+                    return
                 }
                 
                 do {

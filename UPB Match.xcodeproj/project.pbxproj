@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6C32E5F01C1646C90066E2FB /* GlocalScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32E5EF1C1646C90066E2FB /* GlocalScoreTableViewController.swift */; };
+		6C32E5F41C19FE240066E2FB /* CopaGlobalScore@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C32E5F31C19FE240066E2FB /* CopaGlobalScore@3x.png */; };
 		6C79EE7D1C03AC9700A83716 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79EE7C1C03AC9700A83716 /* Activity.swift */; };
 		6C79EE7F1C03ACEC00A83716 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79EE7E1C03ACEC00A83716 /* Team.swift */; };
 		6C79EE811C03BD5100A83716 /* ActivityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C79EE801C03BD5100A83716 /* ActivityTests.swift */; };
@@ -46,6 +47,7 @@
 		4B710889B2DF7686A3F4DC8F /* libPods-UPB Match.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UPB Match.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E26FE459C994BF901B455E7 /* Pods-UPB Match.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPB Match.release.xcconfig"; path = "Pods/Target Support Files/Pods-UPB Match/Pods-UPB Match.release.xcconfig"; sourceTree = "<group>"; };
 		6C32E5EF1C1646C90066E2FB /* GlocalScoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlocalScoreTableViewController.swift; sourceTree = "<group>"; };
+		6C32E5F31C19FE240066E2FB /* CopaGlobalScore@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CopaGlobalScore@3x.png"; sourceTree = "<group>"; };
 		6C79EE7A1C03A52100A83716 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		6C79EE7C1C03AC9700A83716 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		6C79EE7E1C03ACEC00A83716 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		6C32E5F21C19FE140066E2FB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6C32E5F31C19FE240066E2FB /* CopaGlobalScore@3x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		6C79EE7B1C03AC5C00A83716 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		6CE5C7BC1BC807D900E5B1AB /* UPB Match */ = {
 			isa = PBXGroup;
 			children = (
+				6C32E5F21C19FE140066E2FB /* Images */,
 				6C32E5F11C165B450066E2FB /* ViewControllers */,
 				6C79EE7B1C03AC5C00A83716 /* Models */,
 				6CB7408F1C02C5760050F199 /* Podfile */,
@@ -299,6 +310,7 @@
 			files = (
 				6CE5C7C81BC807D900E5B1AB /* LaunchScreen.storyboard in Resources */,
 				6CE5C7C51BC807D900E5B1AB /* Assets.xcassets in Resources */,
+				6C32E5F41C19FE240066E2FB /* CopaGlobalScore@3x.png in Resources */,
 				6CB740901C02C5760050F199 /* Podfile in Resources */,
 				6CE5C7C31BC807D900E5B1AB /* Main.storyboard in Resources */,
 			);

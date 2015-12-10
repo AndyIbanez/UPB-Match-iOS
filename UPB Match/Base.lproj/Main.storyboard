@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wXr-gI-kGI">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -23,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="711" y="839"/>
         </scene>
-        <!--Glocal Score Table View Controller-->
+        <!--Score Global-->
         <scene sceneID="8hh-Dt-y0H">
             <objects>
                 <tableViewController id="4ev-QG-Tq0" customClass="GlocalScoreTableViewController" customModule="UPB_Match" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,29 +34,49 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tFD-SS-hNn">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GlobalScoreCell" rowHeight="109" id="tFD-SS-hNn">
+                                <rect key="frame" x="0.0" y="92" width="600" height="109"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tFD-SS-hNn" id="KhY-M4-jXQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="108"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CopaGlobalScore.png" translatesAutoresizingMaskIntoConstraints="NO" id="q0P-X0-djx">
+                                            <rect key="frame" x="194" y="7" width="213" height="93"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="q0P-X0-djx" firstAttribute="bottom" secondItem="KhY-M4-jXQ" secondAttribute="bottomMargin" id="LsK-c0-TCD"/>
+                                        <constraint firstItem="q0P-X0-djx" firstAttribute="centerX" secondItem="KhY-M4-jXQ" secondAttribute="centerX" id="SXN-cb-ilf"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pIY-UH-xED">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamCell" id="pIY-UH-xED">
+                                <rect key="frame" x="0.0" y="201" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="100" contentMode="center" tableViewCell="pIY-UH-xED" id="1kn-sQ-j0D">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sMw-gy-0dd">
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sMw-gy-0dd">
                                             <rect key="frame" x="8" y="7" width="30" height="30"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="uVP-Vc-Haq"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="101" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezp-Mg-bLC">
-                                            <rect key="frame" x="46" y="11" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezp-Mg-bLC">
+                                            <rect key="frame" x="46" y="11" width="92" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcl-TN-Vko">
+                                            <rect key="frame" x="547" y="11" width="45" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -63,6 +84,15 @@
                                         </label>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="Ezp-Mg-bLC" firstAttribute="centerY" secondItem="sMw-gy-0dd" secondAttribute="centerY" id="FuR-z1-hya"/>
+                                        <constraint firstItem="xcl-TN-Vko" firstAttribute="centerY" secondItem="1kn-sQ-j0D" secondAttribute="centerY" id="NHH-FA-dsD"/>
+                                        <constraint firstItem="Ezp-Mg-bLC" firstAttribute="baseline" secondItem="xcl-TN-Vko" secondAttribute="baseline" id="VDM-Zj-yEM"/>
+                                        <constraint firstItem="xcl-TN-Vko" firstAttribute="trailing" secondItem="1kn-sQ-j0D" secondAttribute="trailingMargin" id="cA8-8e-SQz"/>
+                                        <constraint firstItem="Ezp-Mg-bLC" firstAttribute="leading" secondItem="sMw-gy-0dd" secondAttribute="trailing" constant="8" symbolic="YES" id="rrY-DW-QNg"/>
+                                        <constraint firstItem="sMw-gy-0dd" firstAttribute="top" secondItem="1kn-sQ-j0D" secondAttribute="topMargin" constant="-1" id="xwj-vy-MGR"/>
+                                        <constraint firstItem="sMw-gy-0dd" firstAttribute="leading" secondItem="1kn-sQ-j0D" secondAttribute="leadingMargin" id="yKv-0v-4CN"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                             </tableViewCell>
@@ -72,7 +102,7 @@
                             <outlet property="delegate" destination="4ev-QG-Tq0" id="TO7-5R-HF6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="zql-6e-0cz"/>
+                    <navigationItem key="navigationItem" title="Score Global" id="zql-6e-0cz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9G5-F9-3VT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -171,4 +201,7 @@
             <point key="canvasLocation" x="1553" y="922"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CopaGlobalScore.png" width="213" height="93"/>
+    </resources>
 </document>

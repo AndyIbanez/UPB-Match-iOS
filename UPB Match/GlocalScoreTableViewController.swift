@@ -9,6 +9,8 @@
 import UIKit
 
 class GlocalScoreTableViewController: UITableViewController {
+    
+    var teams = [Team]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class GlocalScoreTableViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         Team.fetchTeams(success: { (participants) -> Void in
             print("participants is \(participants)")
+            self.teams = participants
+            self.tableView.reloadData()
             }) { (error, objects) -> Void in
                 print("Failed because \(error)")
         }
@@ -37,23 +41,45 @@ class GlocalScoreTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (1 + self.teams.count)
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        
+        let identifier: String
+        
+        let cell: UITableViewCell
+        if indexPath.row == 0 {
+            identifier = "GlobalScoreCell"
+            cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+        } else {
+            identifier = "TeamCell"
+            cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath)
+            let teamNameLabel = cell.viewWithTag(101) as? UILabel
+            let scoreLabel = cell.viewWithTag(102) as? UILabel
+            let team = self.teams[indexPath.row - 1] // - 1, because arrays start at 0, but the Teams start at 1, so this needs to be adjusted.
+            
+            print("TeamNameLabel: \(cell.viewWithTag(101))")
+            print("TEAM: \(team.name): \(team.score)")
+            
+            teamNameLabel?.text = team.name
+            scoreLabel?.text = "\(team.score)"
+        }
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 93.0
+        }
+        return 44.0
+    }
 
     /*
     // Override to support conditional editing of the table view.
