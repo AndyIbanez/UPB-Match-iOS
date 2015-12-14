@@ -12,6 +12,8 @@ private let reuseIdentifier = "Cell"
 
 class ActivitiesCollectionViewController: UICollectionViewController {
 
+    var activities = [Activity]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,19 +21,24 @@ class ActivitiesCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
-        Activity.fetchActivities({ (activities) -> Void in
-            print("Activities are: \(activities)")
-            }) { (error, objects) -> Void in
-                print("Activities error: \(error)")
-        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        Activity.fetchActivities({ (activities) -> Void in
+            print("Activities are: \(activities)")
+            self.activities = activities
+            self.collectionView?.reloadData()
+            }) { (error, objects) -> Void in
+                print("Activities error: \(error)")
+        }
     }
 
     /*
@@ -48,19 +55,20 @@ class ActivitiesCollectionViewController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return activities.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
     
-        // Configure the cell
+        let activityLabel = cell.viewWithTag(101) as? UILabel
+        activityLabel?.text = self.activities[indexPath.row].name
     
         return cell
     }
