@@ -13,6 +13,14 @@ import Foundation
 /// - paramater participants: An array of participants involved in the activity.
 typealias SuccessParticipantsClosure = (participants: [Activity.Participant]) -> Void
 
+/// A closure that gets called when an operation fetching content finishes successfully.
+///
+/// - parameter activies: An array of activities.
+typealias SuccessActivitiesClosure = (activities: [Activity]) -> Void
+
+/// A closure called when an Activities fetch fails.
+typealias FailureActivitiesFetchClosure = (error: String, objects: [Activity]?) -> Void
+
 /// A closure called when a Participants fetch fails.
 typealias FailureParticipantsFetchClosure = (error: String, objects: [Activity.Participant]?) -> Void
 
@@ -55,7 +63,7 @@ public class Activity {
     let name: String
     
     /// Number of participants (people).
-    let numberOfParticipants: Int
+    let numberOfParticipants: String
     
     /// Activity rules.
     let rules: String
@@ -75,7 +83,7 @@ public class Activity {
     /// - parameter rules: Activity rules.
     /// - parameter backgroundName: Name for the background file.
     /// - parameter iconName: Name for the icon file.
-    init(state: String, dateTime: String, id: String, name: String, numberOfParticipants: Int, rules: String, backgroundName: String, iconName: String) {
+    init(state: String, dateTime: String, id: String, name: String, numberOfParticipants: String, rules: String, backgroundName: String, iconName: String) {
         self.state = state
         self.dateOrHour = dateTime
         self.name = name
@@ -94,7 +102,7 @@ public class Activity {
         self.dateOrHour = parseObject["Fecha_Hora"] as! String
         self.ID = parseObject.objectId! 
         self.name = parseObject["Nombre_Actividad"] as! String
-        self.numberOfParticipants = Int(parseObject["Numero_Participantes"] as! String)!
+        self.numberOfParticipants = parseObject["Numero_Participantes"] as! String
         self.rules = parseObject["Reglas"] as! String
         self.backgroundName = parseObject["FondoActividad"] as! String
         self.iconName = parseObject["Icono_Actividad"] as! String
@@ -188,4 +196,68 @@ public class Activity {
             }
         }
     }
+    
+    /// Returns all activities.
+    static func fetchActivities(success: SuccessActivitiesClosure, failure: FailureActivitiesFetchClosure) {
+        let query = PFQuery(className: "Actividades")
+        query.orderByAscending("Nombre_Actividad")
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if let er = error {
+                print("Error fetching activities: \(er)")
+                failure(error: er.localizedDescription, objects: nil)
+            } else {
+                var acts = [Activity]()
+                if let objs = objects {
+                    for obj in objs {
+                        let indiAct = Activity(parseObject: obj)
+                        acts += [indiAct]
+                    }
+                    success(activities: acts)
+                } else {
+                    print("No Activities")
+                    failure(error: "No Activities", objects: nil)
+                    return
+                }
+                
+                do {
+                    try PFObject.unpinAllObjectsWithName("ACTIVITIES_LABEL")
+                } catch let e {
+                    print("Couldn't unpin: \(e)")
+                }
+                
+                PFObject.pinAllInBackground(objects, withName: "ACTIVITIES_LABEL")
+            }
+        }
+    }
+    /*    public void getActivities(final CustomSimpleCallback<Actividad> callback) {
+    ParseQuery<ParseObject> query = ParseQuery.getQuery("Actividades");
+    query.orderByAscending("Nombre_Actividad");
+    query.findInBackground(new FindCallback<ParseObject>() {
+    // ORIGINAL: public void done(ParseObject object, ParseException e)
+    public void done(List<ParseObject> object, ParseException e) {
+    if (e == null) {
+    ArrayList<Actividad> teams = new ArrayList<Actividad>();
+    // TODOS LOS OBJETOS DEL PARSE.
+    for(ParseObject act : object) {
+    Actividad indiAct = new Actividad(act);
+    teams.add(indiAct);
+    }
+    
+    try {
+    ParseObject.unpinAll("ACTIVITIES_LABEL");
+    } catch(Exception ex) {
+    Log.e("ANDYCHE", "Couldn't unpin.");
+    }
+    
+    Log.e("DOKO", "HERE");
+    ParseObject.pinAllInBackground("ACTIVITIES_LABEL", object);
+    Log.e("DOKO", "THEREAFTER");
+    callback.done(teams);
+    } else {
+    Log.e("DOKO", "The error is: " + e.getMessage());
+    actividadesCache(callback);
+    }
+    }
+    });
+    }*/
 }
