@@ -75,6 +75,7 @@
                                     <segment title="Score"/>
                                     <segment title="Reglamento"/>
                                 </segments>
+                                <color key="tintColor" red="0.81176470590000005" green="0.56470588239999997" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="selectedViewControllerDidChange:" destination="STz-kL-BwE" eventType="valueChanged" id="20Z-TU-JC0"/>
                                 </connections>
@@ -448,6 +449,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.14509803921568629" green="0.18823529411764706" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

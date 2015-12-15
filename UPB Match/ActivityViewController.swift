@@ -29,6 +29,7 @@ class ActivityViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        self.navigationItem.title = self.activity.name
         let scoreVc = self.childViewControllers.first as! IndividualActivityScoreTableViewController
         scoreVc.activity = self.activity
         self.activityInfoVC.activity = self.activity
@@ -51,6 +52,7 @@ class ActivityViewController: UIViewController {
         print("selected \(seg.selectedSegmentIndex)")
         if seg.selectedSegmentIndex == 0 {
             // Selected Scores
+            self.activityInfoVC.view.removeFromSuperview()
         } else {
             self.addChildViewController(self.activityInfoVC)
             self.containerView.addSubview(self.activityInfoVC.view)

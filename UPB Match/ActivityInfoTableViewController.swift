@@ -32,6 +32,12 @@ class ActivityInfoTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.participantsLabel.text = "\(self.activity.numberOfParticipants)"
+        self.dateTimeLabel.text = self.activity.dateOrHour
+        self.rulesTextView.text = self.activity.rules
+    }
 
     // MARK: - Table view data source
 
