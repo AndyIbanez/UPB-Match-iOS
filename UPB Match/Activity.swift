@@ -127,7 +127,9 @@ public class Activity {
                     for participant in objs {
                         let team = participant.objectForKey("Id_Equipo") as! PFObject
                         if let indiTeam = Team(team: team) {
-                            let ptcpt = Participant(team: indiTeam, totalPoints: Int(participant["Puntos_Ganados"] as! String)!, pointsLost: Int(participant["Puntos_Puntos_Perdido"] as! String)!)
+                            let pointsEarned = participant["Puntos_Ganados"] as! Int
+                            let pointsLost = participant["Puntos_Perdidos"] as! Int
+                            let ptcpt = Participant(team: indiTeam, totalPoints: pointsEarned, pointsLost: pointsLost)
                             parts += [ptcpt]
                         } else {
                             print("Couldn't create team.")

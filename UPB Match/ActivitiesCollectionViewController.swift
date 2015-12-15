@@ -41,15 +41,21 @@ class ActivitiesCollectionViewController: UICollectionViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if let dest = segue.destinationViewController as? ActivityViewController {
+            if let senderAsCell = sender as? UICollectionViewCell {
+                if let ip = self.collectionView?.indexPathForCell(senderAsCell) {
+                    let activity = self.activities[ip.row]
+                    dest.activity = activity
+                }
+            }
+        }
     }
-    */
 
     // MARK: UICollectionViewDataSource
 
