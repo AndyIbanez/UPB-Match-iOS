@@ -13,7 +13,7 @@ typealias Participant = Activity.Participant
 class ActivityViewController: UIViewController {
     
     var activity: Activity!
-    var activityInfo = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ActivityInfoStoryboardID") as! ActivityInfoTableViewController
+    var activityInfoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ActivityInfoStoryboardID") as! ActivityInfoTableViewController
 
     @IBOutlet weak var viewSelectorSegmentedControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
@@ -31,7 +31,8 @@ class ActivityViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         let scoreVc = self.childViewControllers.first as! IndividualActivityScoreTableViewController
         scoreVc.activity = self.activity
-        print("containerViewDicks: \(scoreVc)")
+        self.activityInfoVC.activity = self.activity
+        self.viewSelectorSegmentedControl.selectedSegmentIndex = 0
     }
     
 
@@ -46,6 +47,14 @@ class ActivityViewController: UIViewController {
     */
 
     @IBAction func selectedViewControllerDidChange(sender: AnyObject) {
+        let seg = sender as! UISegmentedControl
+        print("selected \(seg.selectedSegmentIndex)")
+        if seg.selectedSegmentIndex == 0 {
+            // Selected Scores
+        } else {
+            self.addChildViewController(self.activityInfoVC)
+            self.containerView.addSubview(self.activityInfoVC.view)
+        }
     }
     
 }
