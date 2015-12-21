@@ -82,15 +82,23 @@ class CalendarTableViewController: UITableViewController {
         print("section is \(section)")
         let sortedKeys = Array(self.monthEvents.keys).sort(<)
         let current = self.monthCounter
-        self.monthCounter += 1
+        if current != sortedKeys.count - 1 {
+            self.monthCounter += 1
+        }
         print("Sorted keys \(sortedKeys) and current \(current) and sorted keys \(sortedKeys[current])")
         return self.monthEvents[sortedKeys[current]]!.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let sortedKeys = Array(self.monthEvents.keys).sort(<)
+        let current = self.monthCounter
+        print("the index path row \(indexPath.row)")
+        let event = self.monthEvents[sortedKeys[current]]![0]
 
         // Configure the cell...
+        let date = cell.viewWithTag(100) as! UILabel
+        date.text = "\(event.day)"
 
         return cell
     }
