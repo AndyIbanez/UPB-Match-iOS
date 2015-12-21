@@ -287,6 +287,7 @@
 				TargetAttributes = {
 					6CE5C7B91BC807D900E5B1AB = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 7X7FABXK4C;
 					};
 					6CE5C7CD1BC807D900E5B1AB = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -556,10 +557,13 @@
 			baseConfigurationReference = 9EA687EFD89BF253CB1B1137 /* Pods-UPB Match.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "UPB Match/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fairese.ios.UPB-Match";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UPB Match/Bridge.h";
 			};
 			name = Debug;
@@ -569,10 +573,13 @@
 			baseConfigurationReference = 4E26FE459C994BF901B455E7 /* Pods-UPB Match.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "UPB Match/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fairese.ios.UPB-Match";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "UPB Match/Bridge.h";
 			};
 			name = Release;
