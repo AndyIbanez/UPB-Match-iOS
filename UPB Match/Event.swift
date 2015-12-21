@@ -15,7 +15,7 @@ typealias SuccessEventFetchClosure = (events: [Event]) -> Void
 typealias FailureEventFetchClosure = (error: String, events: [Event]?) -> Void
 
 /// Represents a single event.
-public class Event {
+public class Event: Hashable, Equatable {
     /// Event ID.
     let ID: String
     
@@ -31,6 +31,23 @@ public class Event {
     /// Event description.
     let description: String
     
+    /// Month of event.
+    let month: Int
+    
+    // MARK: - Hashable
+    public var hashValue: Int {
+        get {
+            return self.ID.hashValue
+        }
+    }
+    
+    /*    private String EventID;
+    private String nombreEvento;
+    private int dia;
+    private String hora;
+    private Date fecha;
+    private String descripcion;*/
+    
     /// Creates a new Event.
     ///
     /// - parameter id: Event ID.
@@ -39,12 +56,13 @@ public class Event {
     /// - parameter hour: Event hour.
     /// - parameter date: Event date.
     /// - parameter description: Event discription.
-    init(id: String, name: String, day: Int, hour: String, description: String) {
+    init(id: String, name: String, day: Int, hour: String, description: String, month: Int) {
         self.ID = id
         self.name = name
         self.day = day
         self.hour = hour
         self.description = description
+        self.month = month
     }
     
     /// Fetches all events.
@@ -72,7 +90,25 @@ public class Event {
                             eHour = "\(cal.hour):\(min)"
                         }
                         let desc = try event.fetchIfNeeded()["Descripcion"] as! String
-                        let nEvent = Event(id: id, name: title, day: eDay, hour: eHour, description: desc)
+                        //let month: String
+                        
+                        /*switch cal.month {
+                        case 1: month = "Enero"
+                        case 2: month = "Febrero"
+                        case 3: month = "Marzo"
+                        case 4: month = "Abril"
+                        case 5: month = "Mayo"
+                        case 6: month = "Junio"
+                        case 7: month = "Julio"
+                        case 8: month = "Agosto"
+                        case 9: month = "Septiembre"
+                        case 10: month = "Octubre"
+                        case 11: month = "Noviembre"
+                        case 12: month = "Diciembre"
+                        default: fatalError()
+                        }*/
+                        
+                        let nEvent = Event(id: id, name: title, day: eDay, hour: eHour, description: desc, month: cal.month)
                         events += [nEvent]
                     } catch let eyy {
                         print("fuck \(eyy)")
@@ -89,6 +125,10 @@ public class Event {
             }
         }
     }
+}
+
+public func ==(lhs: Event, rhs: Event) -> Bool {
+    return lhs.ID == rhs.ID
 }
 
 /*     @Override

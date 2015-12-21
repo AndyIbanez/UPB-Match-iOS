@@ -10,6 +10,11 @@ import UIKit
 
 class CalendarTableViewController: UITableViewController {
 
+    var events = [Event]()
+    var monthEvents = [Int : [Event]]()
+    var monthCounter = 0
+    var availableMonths = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +27,35 @@ class CalendarTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         Event.fetchEvents({ (events) -> Void in
-            print("events are \(events)")
+            self.events = events
+            for event in self.events {
+                if self.monthEvents[event.month] == nil {
+                    self.monthEvents[event.month] = [event]
+                    
+                    let month: String
+                    switch event.month {
+                    case 1: month = "Enero"
+                    case 2: month = "Febrero"
+                    case 3: month = "Marzo"
+                    case 4: month = "Abril"
+                    case 5: month = "Mayo"
+                    case 6: month = "Junio"
+                    case 7: month = "Julio"
+                    case 8: month = "Agosto"
+                    case 9: month = "Septiembre"
+                    case 10: month = "Octubre"
+                    case 11: month = "Noviembre"
+                    case 12: month = "Diciembre"
+                    default: fatalError()
+                    }
+                    
+                    self.availableMonths += [month]
+                } else {
+                    self.monthEvents[event.month]! += [event]
+                }
+            }
+            print("month events \(self.monthEvents) available months \(self.availableMonths)")
+            self.tableView.reloadData()
             }) { (error, events) -> Void in
                 print("Fuck me \(error)")
         }
@@ -37,23 +70,30 @@ class CalendarTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return self.availableMonths.count
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.availableMonths[section]
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print("section is \(section)")
+        let sortedKeys = Array(self.monthEvents.keys).sort(<)
+        let current = self.monthCounter
+        self.monthCounter += 1
+        print("Sorted keys \(sortedKeys) and current \(current) and sorted keys \(sortedKeys[current])")
+        return self.monthEvents[sortedKeys[current]]!.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
